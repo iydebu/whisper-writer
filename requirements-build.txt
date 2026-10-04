@@ -1,0 +1,5 @@
+# Build-only tools (the app itself needs requirements.txt).
+# torch stays in requirements.txt: models/setup_models.py needs it, and the build copies
+# cuBLAS out of its wheel -- but torch is NOT bundled into the exe.
+pyinstaller==6.22.3
+pyinstaller-hooks-contrib==2026.7

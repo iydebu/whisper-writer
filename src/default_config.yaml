@@ -1,0 +1,30 @@
+# Settings a fresh install starts with. Copied to %APPDATA%\WhisperWriter\config.yaml
+# on first run (see run.py); the user's copy is never overwritten by an upgrade.
+misc:
+  hide_status_window: false
+  noise_on_completion: false
+  print_to_terminal: true
+  status_window_position: top_center
+  theme: neon_blue
+model_options:
+  compute_type: int8_float16
+  condition_on_previous_text: true
+  device: auto
+  initial_prompt: null
+  language_mode: hinglish_roman
+  model_quality: medium
+  temperature: 0.0
+  vad_filter: false
+post_processing:
+  add_trailing_space: true
+  remove_capitalization: false
+  remove_trailing_period: false
+  writing_key_press_delay: 0.005
+recording_options:
+  activation_key: f4
+  recording_mode: hold_to_record
+  sample_rate: 16000
+  silence_duration: 900
+  sound_device: null
+  voice_threshold: 0.24
+  wake_word_phrase: whisper

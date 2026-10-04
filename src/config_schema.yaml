@@ -1,0 +1,110 @@
+# WhisperWriter settings schema.
+# Every setting: type, default value, optional fixed choices, and the help text shown in Settings.
+# The Settings window builds its tabs from this file in this order (one tab per section).
+
+model_options:
+  model_quality:
+    type: str
+    value: medium
+    options: [small, medium, large]
+    description: "Model size for Hinglish mode. Small: fastest, lowest VRAM. Medium: balanced. Large: most accurate, slowest. Indian English mode uses its own fixed model and ignores this setting. In hinglish_roman mode, medium is the Apex model (fast) and large is the Prime model (most accurate)."
+  language_mode:
+    type: str
+    value: indian_english
+    options: [indian_english, hinglish, hinglish_roman]
+    description: "Language profile. Indian English: Indian-accented English transcribed to English. Hinglish: mixed Hindi/English speech translated to pure English. Hinglish Roman: Hindi speech written in English letters such as main theek hoon, with no translation."
+  temperature:
+    type: float
+    value: 0.0
+    description: "Sampling temperature for decoding. Keep 0 for the steadiest, most repeatable text; raise it only if the model gets stuck repeating itself."
+  initial_prompt:
+    type: str
+    value: null
+    description: "Optional text the model sees before your speech. Put names, product words or jargon here so they come out spelled right."
+  device:
+    type: str
+    value: auto
+    options: [auto, cuda, cpu]
+    description: "Where the model runs. cuda = NVIDIA graphics card (much faster), cpu = processor only, auto = use the graphics card when one is found."
+  compute_type:
+    type: str
+    value: default
+    options: [default, float32, float16, int8, int8_float16]
+    description: "Number precision for the model. float16 is quick on a graphics card, int8 saves memory, float32 is the most exact. default picks for you."
+  condition_on_previous_text:
+    type: bool
+    value: true
+    description: "Feed the previous sentence back in as context. Helps long dictations stay consistent."
+  vad_filter:
+    type: bool
+    value: true
+    description: "Cut silent stretches out of the clip before transcribing. Fewer made-up words in pauses."
+
+recording_options:
+  activation_key:
+    type: str
+    value: ctrl+shift+space
+    description: "Global hotkey that starts and stops dictation. Join keys with '+', for example ctrl+alt+d."
+  recording_mode:
+    type: str
+    value: continuous
+    options: [continuous, voice_activity_detection, press_to_toggle, hold_to_record, wake_word]
+    description: "Recording behavior. Continuous: auto-restart after speech pause. VAD: stop after silence. Toggle: press key again to stop. Hold: stop when key released. Wake word: say the wake word to dictate, stops after silence."
+  sound_device:
+    type: str
+    value: null
+    description: "Microphone to record from. Empty means the Windows default mic; pick another one on the Audio panel."
+  sample_rate:
+    type: int
+    value: 16000
+    description: "Recording rate in Hz. Whisper models expect 16000, so leave it unless you know why."
+  silence_duration:
+    type: int
+    value: 900
+    description: "How long you can pause (in milliseconds) before a silence-ending mode decides you are done."
+  voice_threshold:
+    type: float
+    value: 0.5
+    description: "Voice detection sensitivity (0.0-1.0). Lower values are more sensitive to quiet sounds."
+  wake_word_phrase:
+    type: str
+    value: whisper
+    description: "Spoken phrase that starts dictation in wake word mode. Say it, then speak normally. A longer phrase is matched more strictly, so use one if ordinary speech keeps starting a recording."
+
+post_processing:
+  writing_key_press_delay:
+    type: float
+    value: 0.005
+    description: "Pause in seconds between typed characters. Raise it if some apps drop letters."
+  remove_trailing_period:
+    type: bool
+    value: false
+    description: "Drop the full stop at the end of each dictation."
+  add_trailing_space:
+    type: bool
+    value: true
+    description: "Type a space after each dictation so the next one does not stick to it."
+  remove_capitalization:
+    type: bool
+    value: false
+    description: "Type everything in lower case."
+
+misc:
+  print_to_terminal:
+    type: bool
+    value: true
+    description: "Write progress and results to the console log. Useful when something goes wrong."
+  hide_status_window:
+    type: bool
+    value: false
+    description: "Do not show the small Listening/Transcribing pill. The hotkey still works."
+  status_window_position:
+    type: str
+    value: bottom_center
+    options: [top_left, top_center, top_right, bottom_left, bottom_center, bottom_right]
+    description: "Where on the screen the Listening pill appears."
+  theme:
+    type: str
+    value: neon_green
+    options: [neon_green, neon_blue]
+    description: "Color theme for the app interface. Takes effect after restart."

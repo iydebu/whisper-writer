@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Build output (installers are sold separately, never committed)
+dist/
+build/temp/
+*.exe
+
+# Speech models (large; downloaded by models/setup_models.py)
+models/*
+!models/setup_models.py
+!models/test_hinglish_roman.py
+
+# Local junk
+_backup/
+$null
+nul
+ui_check.png
+*.log
+
+# Project notes
+.hermes/
+
+# Personal settings (the app creates it from default_config.yaml)
+src/config.yaml

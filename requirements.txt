@@ -1,0 +1,25 @@
+# Core transcription
+faster-whisper
+ctranslate2
+sentencepiece
+onnxruntime
+# transformers + torch: only for models/setup_models.py (model conversion).
+# The build copies cuBLAS out of the torch CUDA wheel; torch is not bundled.
+transformers
+torch
+
+# UI
+PyQt5
+
+# Keyboard/Input
+pynput
+
+# Audio
+sounddevice
+pygame
+webrtcvad-wheels
+vosk
+
+# Config & Utils
+python-dotenv
+PyYAML

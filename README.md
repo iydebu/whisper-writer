@@ -10,10 +10,12 @@
 
 ## Get the installer
 
-The easiest way is the one-click Windows installer (about 2.5 GB, speech models included):
-**[whisperwriter.iydebu.com](https://whisperwriter.iydebu.com)** — pay what you want. It supports the work.
+The source code is free and open here under the MIT license.
+The official, ready-to-use Windows installer (.exe, about 2.5 GB, speech models included) is only for people who buy it:
+**[whisperwriter.iydebu.com](https://whisperwriter.iydebu.com)** — pay what you want, from $3.
 
-Everything in this repository is free. You can also build it yourself (below).
+Buying the installer supports the project. Official builds are not posted on GitHub Releases.
+If you prefer, you can build it yourself from source for free (see [Build the installer](#build-the-installer) below).
 
 ## Language modes
 
